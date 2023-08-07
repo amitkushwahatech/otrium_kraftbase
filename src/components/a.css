@@ -1,0 +1,24 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@100;900&display=swap");
+
+body {
+  font-family: "Exo 2", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #55bf91;
+  color: white;
+  flex-direction: column;
+}
+
+.o-section {
+  width: 100%;
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+} */

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width:100vw;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+        .text{
+            position: fixed;
+            z-index: 2;
+            opacity: 0;
+            left:50%;
+            top:50%;
+        }
+    </style>
+</head>
+<body>
+    <div style="position: absolute;">
+        <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    </div>
+    
+
+
+    <h1 class="text">asd1</h1>
+    <h1 class="text">asd2</h1>
+    <h1 class="text">asd3</h1>
+    <h1 class="text">asd4</h1>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const boxes = document.querySelectorAll('.box');
+const texts = gsap.utils.toArray('.text');
+texts.forEach((element,i) => {
+    gsap.to(element,{
+        x: 200,
+        opacity:1,
+        scrollTrigger : {
+            trigger: boxes[i],
+            start: "top 10px",
+            end: "+=65%",
+            scrub: true,
+             
+        }
+       
+    })
+    if(i!==0){
+        gsap.to(texts[i-1],{
+        
+        opacity:0,
+        scrollTrigger : {
+            trigger: boxes[i],
+            start: "top 10px",
+            end: "+=65%",
+            scrub: true,
+             
+        }
+       
+    })
+}
+});
+// collages.forEach(collage => {
+//   const collageImages = gsap.utils.toArray('.collage__image');
+//   collageImages.forEach(image => {
+//     gsap.to(image, {
+//       yPercent: -25,
+//       scrollTrigger: {
+//         trigger: image,
+//         scrub: true,
+//         end: '+=65%',
+//       },
+//     });
+//   });
+// });
+</script>
+</html>
